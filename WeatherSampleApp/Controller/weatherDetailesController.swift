@@ -31,8 +31,8 @@ class weatherDetailesController: UIViewController {
         self.descriptionLbl.text = model.weatherDesc
         self.latLbl.text = "Lat: \(model.lat)"
         self.longLbl.text = "Long: \(model.long)"
-        self.sunriseLbl.text = "SunRise: \(model.sunRise ?? "")"
-        self.sunsetLbl.text = "SunRise: \(model.sunSet ?? "")"
+        self.sunriseLbl.text = "Sunrise: \(model.sunRise ?? "")"
+        self.sunsetLbl.text = "Sunset: \(model.sunSet ?? "")"
         self.fellsLikeLbl.text = "Feels like: \(Int(round(model.feelsLike)))°"
     }
     

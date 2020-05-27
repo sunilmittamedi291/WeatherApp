@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import  UIKit
+
 extension Int {
     var convertToDate: Date? {
         
@@ -31,6 +33,13 @@ extension Int {
         dateFormatter.dateFormat =  "dd MMM hh:mm a"
         let result = dateFormatter.string(from: dateTimeStamp as Date)
         return result
+    }
+}
+extension UIViewController {
+    func showAlertView(withTitle title: String, withErrorMessage message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(ac, animated: true)
     }
 }
 

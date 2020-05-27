@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         viewModel.shouldUpdateViewState = { [weak self] (model, error) in
             self?.removeSpinner()
             guard  error == nil  else {
-                // self?.showAlertView(withTitle: "Alert", withErrorMessage: error ?? "")
+                 self?.showAlertView(withTitle: "Alert", withErrorMessage: error ?? "")
                 return
             }
             DispatchQueue.main.async {
@@ -69,6 +69,10 @@ class ViewController: UIViewController {
 
 extension ViewController: PopOverProtocol {
     func sendBackData(_ cityName: String) {
+        guard Reachability.isConnectedToNetwork()  else {
+            self.showAlertView(withTitle: "Alert", withErrorMessage: "No Internet Connection")
+            return
+        }
         self.showSpinner(onView: self.view)
         viewModel.callWeatherDataApi(cityName)
     }
